@@ -1,0 +1,475 @@
+/* Mission & Vision Section */
+.missionVisionSection {
+  padding: 60px 0;
+  background: linear-gradient(135deg, var(--bg-color) 0%, color-mix(in srgb, var(--bg-color) 98%, var(--text-color) 2%) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.missionVisionSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--text-color) 2%, transparent) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, color-mix(in srgb, var(--text-color) 1%, transparent) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Section Header */
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--text-color), color-mix(in srgb, var(--text-color) 70%, #007bff 30%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.titleUnderline {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--text-color) 70%, transparent);
+  font-weight: 400;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Content Blocks - Minimized Height */
+.contentBlock {
+  background: var(--bg-color);
+  border-radius: 15px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  box-shadow: 
+    0 12px 25px var(--shadow-color),
+    0 0 0 1px color-mix(in srgb, var(--text-color) 5%, transparent);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentBlock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.contentBlock:hover::before {
+  transform: scaleX(1);
+}
+
+.contentBlock:hover {
+  border-color: color-mix(in srgb, #007bff 20%, transparent);
+  box-shadow: 
+    0 18px 35px var(--hover-shadow-color),
+    0 0 0 1px color-mix(in srgb, #007bff 15%, transparent);
+}
+
+/* Icon Container - Smaller */
+.iconContainer {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.contentBlock:hover ,
+.contentBlock:hover  {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #007bff30, #0056b330);
+}
+
+/* Block Content - Compact */
+.blockContent {
+  text-align: center;
+}
+
+.blockTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  position: relative;
+}
+
+.blockTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border-radius: 1px;
+}
+
+.blockDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--text-color) 80%, transparent);
+  margin-bottom: 1.5rem;
+}
+
+.featureDot {
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Gradient Divider */
+.dividerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradientDivider {
+  width: 3px;
+  height: 70%;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    #007bff 20%, 
+    #0056b3 50%, 
+    #007bff 80%, 
+    transparent 100%);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* Values Footer - Compact */
+.valuesFooter {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+.valuesContainer {
+  text-align: center;
+}
+
+.valuesTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+/* Updated Value Items with Animated Counters */
+.valueItem {
+  background: var(--card-bg);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.valueItem:hover::before {
+  opacity: 1;
+}
+
+.valueItem:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px);
+}
+
+.valueIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.valueNumber {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.5rem !important;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+.valueTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.valueDesc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo Image Styling */
+.logoImage {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.valueItem:hover .logoImage {
+  transform: scale(1.1);
+}
+
+/* Color Variables for Animated Counters */
+.valueItem[style*="border-left-color: #4F46E5"] .valueNumber {
+  background: linear-gradient(135deg, #4F46E5, #3730A3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.valueItem[style*="border-left-color: #10B981"] .valueNumber {
+  background: linear-gradient(135deg, #10B981, #047857);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.valueItem[style*="border-left-color: #F59E0B"] .valueNumber {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.valueItem[style*="border-left-color: #EF4444"] .valueNumber {
+  background: linear-gradient(135deg, #EF4444, #DC2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Theme-specific styles */
+:global(.light) .valueItem {
+  --card-bg: #ffffff;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+}
+
+:global(.light) .logoImage {
+  filter: brightness(0) invert(0);
+}
+
+:global(.dark) .valueItem {
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+}
+
+:global(.dark) .logoImage {
+  filter: brightness(0) invert(1);
+}
+
+/* Counter Animation Styles */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.valueNumber {
+  animation: countUp 0.6s ease-out;
+}
+
+/* Pulse animation for numbers on hover */
+.valueItem:hover .valueNumber {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Icon animations */
+.valueIcon span {
+  transition: transform 0.3s ease;
+}
+
+.valueItem:hover .valueIcon span {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .missionVisionSection {
+    padding: 40px 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .contentBlock {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .blockTitle {
+    font-size: 1.3rem;
+  }
+  
+  .valuesTitle {
+    font-size: 1.3rem;
+  }
+  
+  .dividerContainer {
+    display: none;
+  }
+  
+  .valueItem {
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .valueNumber {
+    font-size: 2rem !important;
+  }
+  
+  .valueIcon {
+    height: 60px;
+  }
+  
+  .logoImage {
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .contentBlock {
+    padding: 1.25rem 1rem;
+  }
+  
+  .blockTitle {
+    font-size: 1.2rem;
+  }
+  
+  .blockDescription {
+    font-size: 0.9rem;
+  }
+  
+  .valuesFooter {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+  
+  .valueItem {
+    padding: 1.25rem 0.75rem;
+  }
+  
+  .valueNumber {
+    font-size: 1.75rem !important;
+  }
+  
+  .valueTitle {
+    font-size: 1.1rem;
+  }
+  
+  .valueDesc {
+    font-size: 0.8rem;
+  }
+}
+
+/* Enhanced gradient backgrounds for value items based on colors */
+.valueItem[style*="border-left-color: #4F46E5"]::before {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+}
+
+.valueItem[style*="border-left-color: #10B981"]::before {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 70%);
+}
+
+.valueItem[style*="border-left-color: #F59E0B"]::before {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+}
+
+.valueItem[style*="border-left-color: #EF4444"]::before {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, transparent 70%);
+}
+
+/* Loading animation for counters */
+@keyframes loadingCounter {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.valueNumber:empty::before {
+  content: '0';
+  animation: loadingCounter 1s infinite alternate;
+  opacity: 0.7;
+}

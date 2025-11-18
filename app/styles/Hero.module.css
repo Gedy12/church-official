@@ -1,0 +1,334 @@
+/* Hero Section */
+.heroSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Background Slider */
+.backgroundSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  transition: transform 0.5s ease; /* Added smooth transform transition */
+}
+
+/* Gradient Overlay */
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: background 1s ease; /* Smooth gradient transition */
+}
+
+/* Background Blur Effect */
+.backgroundBlur {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 1.2s ease; /* Slower blur transition */
+  z-index: 1;
+}
+
+.backgroundSlider:hover .backgroundBlur {
+  opacity: 0.3;
+}
+
+/* Hero Content */
+.heroContent {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.textContent {
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.8s ease; /* Smooth content transition */
+}
+
+.heroQuote {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.8s ease; /* Smooth quote transition */
+}
+
+.heroSubheading {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.8s ease; /* Smooth subheading transition */
+}
+
+/* CTA Button */
+.ctaButton {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  color: white;
+  padding: 1.25rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Slower button transition */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.8s; /* Slower shine effect */
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.buttonArrow {
+  font-size: 1.2rem;
+  transition: transform 0.5s ease; /* Slower arrow transition */
+}
+
+/* Navigation Arrows - FIXED POSITIONING */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  transition: all 0.5s ease; /* Slower arrow transition */
+  backdrop-filter: blur(10px);
+}
+
+.navArrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Left Arrow - FIXED: Use class selector instead of :first-child */
+.prevArrow {
+  left: 2rem;
+}
+
+/* Right Arrow */
+.nextArrow {
+  right: 2rem;
+}
+
+.navArrow svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* Pagination Dots */
+.pagination {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 4;
+}
+
+.paginationDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Slower dot transition */
+}
+
+.paginationDot.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.paginationDot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  z-index: 4;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.scrollIndicator svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroQuote {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .heroSubheading {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .navArrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .prevArrow {
+    left: 1rem;
+  }
+  
+  .nextArrow {
+    right: 1rem;
+  }
+  
+  .navArrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroQuote {
+    font-size: 2rem;
+  }
+  
+  .heroSubheading {
+    font-size: 1rem;
+  }
+  
+  .ctaButton {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .pagination {
+    bottom: 1.5rem;
+  }
+  
+  .paginationDot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .navArrow {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .prevArrow {
+    left: 0.5rem;
+  }
+  
+  .nextArrow {
+    right: 0.5rem;
+  }
+}
+
+/* Parallax Effect */
+@media (min-width: 769px) {
+  .slide {
+    background-attachment: fixed;
+  }
+}
+
+/* Loading State */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000000, #1a1a1a);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Slower loading transition */
+}
+
+.heroSection.loading::before {
+  opacity: 1;
+}
+
+/* Enhanced smooth transitions for better readability */
+.textContent > * {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

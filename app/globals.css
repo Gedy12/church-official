@@ -1,0 +1,228 @@
+/* Import Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Base styles for light and dark modes */
+:root {
+  /* Light Mode Colors */
+  --bg-color-light: #ffffff;
+  --text-color-light: #000000;
+  --shadow-color-light: rgba(0, 0, 0, 0.1);
+  --hover-shadow-color-light: rgba(0, 0, 0, 0.3);
+  --nav-bg-light: rgba(255, 255, 255, 0.95);
+  
+  /* Dark Mode Colors */
+  --bg-color-dark: #000000;
+  --text-color-dark: #ffffff;
+  --shadow-color-dark: rgba(255, 255, 255, 0.1);
+  --hover-shadow-color-dark: rgba(255, 255, 255, 0.3);
+  --nav-bg-dark: rgba(0, 0, 0, 0.95);
+  
+  /* Default to light mode */
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-light);
+  --shadow-color: var(--shadow-color-light);
+  --hover-shadow-color: var(--hover-shadow-color-light);
+  --nav-bg: var(--nav-bg-light);
+}
+
+/* Dark mode class */
+.dark-mode {
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --shadow-color: var(--shadow-color-dark);
+  --hover-shadow-color: var(--hover-shadow-color-dark);
+  --nav-bg: var(--nav-bg-dark);
+}
+
+/* Apply colors globally */
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Custom header shadow styles */
+.header-shadow {
+  box-shadow: 0 2px 30px var(--shadow-color);
+  transition: all 0.3s ease;
+  background-color: var(--nav-bg) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+.header-shadow:hover {
+  box-shadow: 0 4px 40px var(--hover-shadow-color);
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: transparent !important;
+  padding: 1rem 0 !important;
+}
+
+.navbar-brand {
+  color: var(--text-color) !important;
+  font-weight: 700 !important;
+  font-size: 1.8rem !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--text-color), #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border: none !important;
+}
+
+.navbar-brand:hover {
+  transform: translateY(-2px);
+}
+
+/* Nav link animations */
+.nav-link-custom {
+  position: relative;
+  color: var(--text-color) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1.5rem !important;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nav-link-custom:hover::after {
+  width: 70%;
+}
+
+.nav-link-custom:hover {
+  transform: translateY(-2px);
+  color: var(--text-color) !important;
+}
+
+/* Active nav link state */
+.nav-link-custom:active,
+.nav-link-custom:focus {
+  color: var(--text-color) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Navbar toggler */
+.navbar-toggler {
+  border: 1px solid var(--text-color) !important;
+  padding: 0.25rem 0.5rem !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background-color: var(--shadow-color);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px var(--hover-shadow-color) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='currentColor' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+/* Dark mode toggle switch styles */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent);
+}
+
+.theme-toggle:hover {
+  background-color: var(--shadow-color);
+  transform: scale(1.1);
+  border-color: var(--text-color);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-icon {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(15deg);
+}
+
+/* Ensure proper scrolling with fixed header */
+main {
+  padding-top: 90px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin-top: 1rem;
+    padding: 1rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+  }
+  
+  .nav-link-custom {
+    padding: 0.75rem 1rem !important;
+    text-align: center;
+    border-radius: 8px;
+    margin: 0.25rem 0;
+  }
+  
+  .nav-link-custom:hover {
+    background-color: var(--shadow-color);
+  }
+  
+  .theme-toggle {
+    margin: 0.5rem auto;
+    display: flex;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+.nav-link-custom:focus-visible,
+.theme-toggle:focus-visible,
+.navbar-brand:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
