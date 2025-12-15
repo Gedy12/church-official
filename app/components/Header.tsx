@@ -46,7 +46,7 @@ const Header = () => {
           >
             {/* Company Logo */}
             <img 
-              src="/company-logo.png" // Update this path to your actual logo file
+              src="/new-logo.png" // Update this path to your actual logo file
               alt="Company Logo" 
               className="company-logo"
               style={{
@@ -93,14 +93,6 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <button 
-                  onClick={(e) => handleNavClick(e, 'about')}
-                  className="nav-link nav-link-custom border-0 bg-transparent"
-                >
-                  Our Leader
-                </button>
-              </li>
-              <li className="nav-item">
-                <button 
                   onClick={(e) => handleNavClick(e, 'services')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
@@ -115,6 +107,14 @@ const Header = () => {
                   Mission & Vision
                 </button>
               </li>
+              <li className="nav-item">
+                <button 
+                  onClick={(e) => handleNavClick(e, 'about')}
+                  className="nav-link nav-link-custom border-0 bg-transparent"
+                >
+                  Our Leader
+                </button>
+              </li>              
               <li className="nav-item">
                 <button 
                   onClick={(e) => handleNavClick(e, 'contact')}

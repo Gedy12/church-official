@@ -88,7 +88,7 @@ const MissionVision = () => {
       icon: '🏛️', 
       title: 'Our Church', 
       desc: 'We have branches across Ethiopia',
-      count: 85,
+      count: 81,
       suffix: '+',
       color: '#4F46E5', // Indigo
       duration: 2000
@@ -240,7 +240,7 @@ const MissionVision = () => {
                     <div className={styles.valueIcon}>
                       {value.isImage ? (
                         <img 
-                          src="/company-logo.png" 
+                          src="/new-logo.png" 
                           alt="ELWECGP Logo" 
                           className={styles.logoImage}
                         />

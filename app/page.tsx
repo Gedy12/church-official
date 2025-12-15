@@ -13,9 +13,9 @@ export default function Home() {
       <Header />
       <Hero />
       <Experience />
-      <AnimatedAbout />
       <Services />
       <MissionVision />
+     <AnimatedAbout />
       <Contact />
       <Footer />
     </main>

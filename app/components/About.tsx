@@ -60,7 +60,7 @@ const AnimatedAbout = () => {
               transition={{ duration: 0.5 }}
             >
               <Image
-                src="/profile.jpg"
+                src="/fikadu.jpg"
                 alt="Software Engineering Student & Developer"
                 width={300}
                 height={350}
