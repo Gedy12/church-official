@@ -2,8 +2,12 @@
 
 import { useEffect } from 'react';
 import ThemeToggle from './ThemeToggle';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '../context/LanguageContext';
 
 const Header = () => {
+  const { t } = useLanguage();
+
   useEffect(() => {
     // Initialize Bootstrap JavaScript
     require('bootstrap/dist/js/bootstrap.bundle.min.js');
@@ -24,11 +28,11 @@ const Header = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>, sectionId: string) => {
     e.preventDefault();
     scrollToSection(sectionId);
-    
+
     // Close mobile menu after click
     const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
     const navbarCollapse = document.querySelector('.navbar-collapse') as HTMLElement;
-    
+
     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
       navbarToggler?.click();
     }
@@ -39,15 +43,15 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg py-3">
         <div className="container">
           {/* Logo/Brand */}
-          <button 
+          <button
             onClick={() => scrollToSection('home')}
             className="navbar-brand fw-bold border-0 bg-transparent d-flex align-items-center"
             style={{ fontSize: '0', padding: '0' }} // Remove text sizing and padding
           >
             {/* Company Logo */}
-            <img 
+            <img
               src="/new-logo.png" // Update this path to your actual logo file
-              alt="Company Logo" 
+              alt="Company Logo"
               className="company-logo"
               style={{
                 height: '50px', // Adjust height as needed
@@ -76,55 +80,66 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto align-items-center">
               <li className="nav-item">
-                <button 
+                <button
                   onClick={(e) => handleNavClick(e, 'home')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
-                  Home
+                  {t('common.home')}
                 </button>
               </li>
               <li className="nav-item">
-                <button 
+                <button
                   onClick={(e) => handleNavClick(e, 'experience')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
-                  Foundation
+                  {t('common.foundation')}
                 </button>
               </li>
               <li className="nav-item">
-                <button 
+                <button
                   onClick={(e) => handleNavClick(e, 'services')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
-                  Journey
+                  {t('common.journey')}
                 </button>
               </li>
               <li className="nav-item">
-                <button 
+                <button
                   onClick={(e) => handleNavClick(e, 'mission')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
-                  Mission & Vision
+                  {t('common.missionVision')}
                 </button>
               </li>
               <li className="nav-item">
-                <button 
+                <button
                   onClick={(e) => handleNavClick(e, 'about')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
-                  Our Leader
+                  {t('common.ourLeaders')}
                 </button>
-              </li>              
+              </li>
               <li className="nav-item">
-                <button 
+                <button
+                  onClick={(e) => handleNavClick(e, 'donate')}
+                  className="nav-link nav-link-custom border-0 bg-transparent"
+                >
+                  {t('common.donate')}
+                </button>
+              </li>
+              <li className="nav-item">
+                <button
                   onClick={(e) => handleNavClick(e, 'contact')}
                   className="nav-link nav-link-custom border-0 bg-transparent"
                 >
-                  Contact
+                  {t('common.contact')}
                 </button>
               </li>
               <li className="nav-item ms-3">
                 <ThemeToggle />
+              </li>
+              <li className="nav-item ms-2">
+                <LanguageSwitcher />
               </li>
             </ul>
           </div>

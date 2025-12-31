@@ -4,8 +4,10 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import styles from '../styles/About.module.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const AnimatedAbout = () => {
+  const { translations } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
@@ -30,6 +32,10 @@ const AnimatedAbout = () => {
     visible: { opacity: 1, scale: 1 }
   };
 
+  const t = translations.about;
+
+  if (!t) return null;
+
   return (
     <section id="about" className={styles.aboutSection} ref={ref}>
       <div className="container">
@@ -38,23 +44,23 @@ const AnimatedAbout = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={fadeInUp}
-          transition={{ duration: 0.9}}
+          transition={{ duration: 0.9 }}
           className="text-center mb-4"
         >
-          <h2 className={styles.sectionTitle}>Our Leader</h2>
+          <h2 className={styles.sectionTitle}>{t.sectionTitle}</h2>
           <div className={styles.titleUnderline}></div>
         </motion.div>
 
         <div className="row align-items-center">
           {/* Compact Image Column */}
-          <motion.div 
+          <motion.div
             className="col-lg-4 col-md-5 mb-4 mb-md-0"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={fadeInLeft}
             transition={{ duration: 0.9 }}
           >
-            <motion.div 
+            <motion.div
               className={styles.imageContainer}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.5 }}
@@ -69,15 +75,15 @@ const AnimatedAbout = () => {
               />
               <div className={styles.imageOverlay}>
                 <div className={styles.overlayContent}>
-                  <span className={styles.overlayText}>Bishop Dr. Fekadu Ayele Shone</span>
-                  <span className={styles.overlaySubtext}>Bishop Dr. Fekadu Ayele Shone is the National Overseer for Ethiopia & Djibouti for the Church of God of Prophecy</span>
+                  <span className={styles.overlayText}>{t.name}</span>
+                  <span className={styles.overlaySubtext}>{t.role}</span>
                 </div>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Compact Content Column */}
-          <motion.div 
+          <motion.div
             className="col-lg-8 col-md-7"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -86,28 +92,28 @@ const AnimatedAbout = () => {
           >
             <div className={styles.contentCard}>
               <div className={styles.contentHeader}>
-                <motion.h3 
+                <motion.h3
                   variants={fadeInUp}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
                   transition={{ delay: 0.3 }}
                   className={styles.greeting}
                 >
-                  <span className={styles.nameHighlight}>Dr. Fekadu Ayele Shone</span>
+                  <span className={styles.nameHighlight}>{t.name}</span>
                 </motion.h3>
-                
-                <motion.p 
+
+                <motion.p
                   variants={fadeInUp}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
                   transition={{ delay: 0.5 }}
                   className={styles.title}
                 >
-                  Bishop Dr. Fekadu Ayele Shone is the National Overseer for Ethiopia & Djibouti for the Church of God of Prophecy
+                  {t.role}
                 </motion.p>
               </div>
 
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
@@ -115,18 +121,11 @@ const AnimatedAbout = () => {
                 className={styles.description}
               >
                 <p>
-                  He was born on August 20, 1954, in Gudaya Jare District, Wollega, Oromia, Ethiopia. 
-                  He was converted in February 1974, while 19 years old, and filled and Baptized by the Holy Ghost the same year. 
-                  Most of his family and relatives have been believers since his conversion. He Married Beirut Deressa Mamede on May 7, 1978. The Lord has blessed them with six boys, two girls, three grandsons, and five granddaughters. 
-                  Most of his family serve in Church work and evangelistic campaigns, doing more in support of his ministry. 
+                  {t.biography.p1}
                 </p>
-                
+
                 <p>
-                  Bishop Dr. Fekadu founded The Ethiopian Living Word Evangelical Church with the guidance of divine
-                  instruction given to him in October 1975. After sixteen years, on September 18, 1991, officially announced. 
-                  In 1996, on March 4, he officially joined The Church of God of Prophecy and Ordained Bishop. 
-                  Under his leadership, the ministry has expanded to over 84 congregations nationwide. His evangelistic experience,
-                  pastoral judgment, and commitment to leadership development have strengthened the Church at every level.
+                  {t.biography.p2}
                 </p>
 
               </motion.div>

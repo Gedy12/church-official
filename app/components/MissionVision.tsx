@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import styles from '../styles/MissionVision.module.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: { end: number; duration?: number; suffix?: string }) => {
   const [count, setCount] = useState(0);
@@ -35,6 +36,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }: { end: number; d
 };
 
 const MissionVision = () => {
+  const { translations } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
@@ -83,36 +85,40 @@ const MissionVision = () => {
     }
   };
 
+  const t = translations.missionVision;
+
+  if (!t) return null;
+
   const valuesData = [
-    { 
-      icon: '🏛️', 
-      title: 'Our Church', 
-      desc: 'We have branches across Ethiopia',
+    {
+      icon: '🏛️',
+      title: t.impact.church.title,
+      desc: t.impact.church.desc,
       count: 81,
       suffix: '+',
       color: '#4F46E5', // Indigo
       duration: 2000
     },
-    { 
-      icon: '👥', 
-      title: 'Our Members', 
-      desc: 'Strong community of believers',
+    {
+      icon: '👥',
+      title: t.impact.members.title,
+      desc: t.impact.members.desc,
       count: 42000,
       suffix: '+',
       color: '#10B981', // Emerald
       duration: 2500
     },
-    { 
-      icon: 'logo', 
-      title: 'Our Logo', 
-      desc: 'ELWECGP Logo',
+    {
+      icon: 'logo',
+      title: t.impact.logo.title,
+      desc: t.impact.logo.desc,
       isImage: true,
       color: '#F59E0B' // Amber
     },
-    { 
-      icon: '🌐', 
-      title: 'Language', 
-      desc: 'Afaan Oromoo, Amharic, English',
+    {
+      icon: '🌐',
+      title: t.impact.language.title,
+      desc: t.impact.language.desc,
       count: 3,
       suffix: '',
       color: '#00b5fdff', // Red
@@ -130,24 +136,24 @@ const MissionVision = () => {
           variants={fadeInUp}
           className="text-center mb-4"
         >
-          <h2 className={styles.sectionTitle}>Our Mission & Vision</h2>
+          <h2 className={styles.sectionTitle}>{t.title}</h2>
           <div className={styles.titleUnderline}></div>
           <p className={styles.sectionSubtitle}>
-           Our Church Vision and Mission Statements
+            {t.subtitle}
           </p>
         </motion.div>
 
         <div className="row align-items-stretch">
           {/* Mission Block - Left Side */}
-          <motion.div 
+          <motion.div
             className="col-lg-6 col-md-6 mb-4 mb-md-0"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={slideInLeft}
           >
-            <motion.div 
+            <motion.div
               className={styles.contentBlock}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
                 transition: { duration: 0.3 }
@@ -155,19 +161,18 @@ const MissionVision = () => {
             >
               {/* Mission Content */}
               <div className={styles.blockContent}>
-                <h3 className={styles.blockTitle}>Our Vision</h3>
+                <h3 className={styles.blockTitle}>{t.vision.title}</h3>
                 <p className={styles.blockDescription}>
-                For more than three decades, the church has stood as a beacon of truth and spiritual renewal in Ethiopia.
-                Its ministry has produced transformed lives, trained leaders, and established branches serving in faith and compassion.
-                "This church was born by the Spirit, built upon the Word, and sustained by the power of God. We exist to glorify Jesus Christ alone."
-                Rev. Fekadu A. Shone "Not by might, nor by power, but by My Spirit, says the Lord of hosts." — Zechariah 4:6.
+                  {t.vision.description}
+                  <br />
+                  {t.vision.quote}
                 </p>
               </div>
             </motion.div>
           </motion.div>
 
           {/* Gradient Divider - Visible only on desktop */}
-          <motion.div 
+          <motion.div
             className={`col-1 ${styles.dividerContainer} d-none d-lg-block`}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -178,15 +183,15 @@ const MissionVision = () => {
           </motion.div>
 
           {/* Vision Block - Right Side */}
-          <motion.div 
+          <motion.div
             className="col-lg-5 col-md-6"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
             variants={slideInRight}
           >
-            <motion.div 
+            <motion.div
               className={styles.contentBlock}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 y: -5,
                 transition: { duration: 0.3 }
@@ -194,15 +199,16 @@ const MissionVision = () => {
             >
               {/* Vision Content */}
               <div className={styles.blockContent}>
-                <h3 className={styles.blockTitle}>Our Mission</h3>
-                <p className={styles.blockDescription}>
-                 The Ethiopian Living Word Evangelical Church of God of Prophecy is a Pentecostal-Evangelical and prophetic ministry dedicated to:
-                 Proclaiming the Living Word of God as the final and authoritative truth.
-                 Teaching salvation, regeneration, sanctification, and the baptism of the Holy Spirit.
-                 Training leaders, pastors, and evangelists to minister in Word and Spirit.
-                 Building unity within the evangelical community in Ethiopia and globally.
-                 "The entrance of Your Word gives light; it gives understanding to the simple." — Psalm 119:130.
-                </p>
+                <h3 className={styles.blockTitle}>{t.mission.title}</h3>
+                <div className={styles.blockDescription}>
+                  {t.mission.description}
+                  <ul>
+                    {t.mission.points.map((point: string, i: number) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                  {t.mission.quote}
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -217,13 +223,13 @@ const MissionVision = () => {
           className={styles.valuesFooter}
         >
           <div className={styles.valuesContainer}>
-            <h4 className={styles.valuesTitle}>Our Community's Impact</h4>
+            <h4 className={styles.valuesTitle}>{t.impact.title}</h4>
             <div className="row g-4">
               {valuesData.map((value, index) => (
                 <div key={value.title} className="col-lg-3 col-md-6">
-                  <motion.div 
+                  <motion.div
                     className={styles.valueItem}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       y: -5,
                       transition: { duration: 0.3 }
@@ -232,43 +238,43 @@ const MissionVision = () => {
                     animate={isInView ? "visible" : "hidden"}
                     variants={scaleIn}
                     transition={{ delay: 1 + index * 0.1 }}
-                    style={{ 
+                    style={{
                       borderLeft: `4px solid ${value.color}`,
                       background: 'var(--card-bg)'
                     }}
                   >
                     <div className={styles.valueIcon}>
                       {value.isImage ? (
-                        <img 
-                          src="/new-logo.png" 
-                          alt="ELWECGP Logo" 
+                        <img
+                          src="/new-logo.png"
+                          alt="ELWECGP Logo"
                           className={styles.logoImage}
                         />
                       ) : (
                         <span style={{ fontSize: '2.5rem' }}>{value.icon}</span>
                       )}
                     </div>
-                    
+
                     {value.count !== undefined ? (
-                      <motion.h5 
+                      <motion.h5
                         className={styles.valueNumber}
                         style={{ color: value.color }}
                         initial={{ scale: 0 }}
                         animate={isInView ? { scale: 1 } : { scale: 0 }}
-                        transition={{ 
+                        transition={{
                           delay: 1.2 + index * 0.1,
                           type: "spring",
                           stiffness: 200
                         }}
                       >
-                        <AnimatedCounter 
-                          end={value.count} 
+                        <AnimatedCounter
+                          end={value.count}
                           duration={value.duration}
                           suffix={value.suffix || ''}
                         />
                       </motion.h5>
                     ) : null}
-                    
+
                     <h5 className={styles.valueTitle}>{value.title}</h5>
                     <p className={styles.valueDesc}>{value.desc}</p>
                   </motion.div>

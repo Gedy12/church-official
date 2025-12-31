@@ -1,0 +1,22 @@
+{
+    "sectionTitle": "Donate",
+    "content": "We want to help the ministers, we want to help children. We want to open a theology school for ministers, For those who live in the countryside we want to help their woman.",
+    "bankSectionTitle": "Bank Account Details",
+    "accounts": [
+        {
+            "bankName": "Commercial Bank of Ethiopia",
+            "accountNumber": "100021389478",
+            "accountName": "Prophecy Church"
+        },
+        {
+            "bankName": "Awash Bank",
+            "accountNumber": "01320847563200",
+            "accountName": "Prophecy Church"
+        },
+        {
+            "bankName": "Hibret Bank",
+            "accountNumber": "1890234567123",
+            "accountName": "Prophecy Church"
+        }
+    ]
+}

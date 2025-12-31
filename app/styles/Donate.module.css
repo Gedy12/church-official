@@ -1,0 +1,126 @@
+/* Donate Section */
+.donateSection {
+  padding: 40px 0;
+  /* Minimized padding */
+  background-color: var(--bg-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.donateSection {
+  background: linear-gradient(135deg, var(--bg-color) 0%, color-mix(in srgb, var(--bg-color) 95%, var(--text-color) 5%) 100%);
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  /* Smaller title */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.titleUnderline {
+  width: 50px;
+  height: 3px;
+  background-color: #dca74a;
+  margin: 0 auto 2rem;
+}
+
+/* Main Content Card */
+.card {
+  background-color: var(--bg-color);
+  border: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+  box-shadow: 0 5px 20px var(--shadow-color);
+  /* Lighter shadow */
+  border-radius: 15px;
+  padding: 2rem;
+  /* Compact padding */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.textContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--text-color) 80%, transparent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Bank Section */
+.bankInfoContainer {
+  padding-top: 1.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+.bankTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Grid Layout for Functionality */
+.banksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+.bankItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--bg-color) 95%, var(--text-color) 5%);
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--text-color) 5%, transparent);
+  transition: transform 0.2s ease;
+}
+
+.bankItem:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--bg-color) 92%, var(--text-color) 8%);
+}
+
+.bankName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #dca74a;
+  /* Highlight color */
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.bankDetailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.accountNumber {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .donateSection {
+    padding: 40px 0;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .banksGrid {
+    grid-template-columns: 1fr;
+    /* Stack on mobile */
+  }
+}

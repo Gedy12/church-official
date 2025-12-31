@@ -1,0 +1,25 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "backgroundImage": "/hero-bg1.jpg",
+            "quote": "እንኳን በሰላም ወደ የኢትዮጵያ ሕያው ቃል ወንጌላዊያን ቤተክርስቲያን ድር ጣቢያ በደህና መጡ!",
+            "subheading": "ኢየሱስም፡— እኔ መንገድና እውነት ሕይወትም ነኝ፤ በእኔ በቀር ወደ አብ የሚመጣ የለም።   ዮሐንስ 14፥6",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,123,255,0.4) 100%)"
+        },
+        {
+            "id": 2,
+            "backgroundImage": "/hero-bg2.jpg",
+            "quote": "",
+            "subheading": "የእግዚአብሔር ቃል ሕያው ነውና፥ የሚሠራም፥ ሁለትም አፍ ካለው ሰይፍ ሁሉ ይልቅ የተሳለ ነው፥ ነፍስንና መንፈስንም ጅማትንና ቅልጥምንም እስኪለይ ድረስ ይወጋል፥ የልብንም ስሜትና አሳብ ይመረምራል፤   ዕብራውያን 4፥12",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(40,167,69,0.4) 100%)"
+        },
+        {
+            "id": 3,
+            "backgroundImage": "/hero-bg3.jpg",
+            "quote": "",
+            "subheading": "ቃልህ ፍቺ ያበራል፥ ሕፃናትንም አስተዋዮች ያደርጋል።   መዝሙር 119፥130”",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(220,53,69,0.4) 100%)"
+        }
+    ]
+}

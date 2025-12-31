@@ -1,0 +1,25 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "backgroundImage": "/hero-bg1.jpg",
+            "quote": "WELCOME TO ETHIOPIAN LIVING WORD EVANGELICAL CHURCH OF GOD OF PROPHECY",
+            "subheading": "“The entrance of thy words giveth light; it giveth understanding unto the simple.” — Psalms 119:130",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,123,255,0.4) 100%)"
+        },
+        {
+            "id": 2,
+            "backgroundImage": "/hero-bg2.jpg",
+            "quote": "",
+            "subheading": "“Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.”— John 14:6",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(40,167,69,0.4) 100%)"
+        },
+        {
+            "id": 3,
+            "backgroundImage": "/hero-bg3.jpg",
+            "quote": "",
+            "subheading": "“For the word of God is quick, and powerful, and sharper than any twoedged sword, piercing even to the dividing asunder of soul and spirit, and of the joints and marrow, and is a discerner of the thoughts and intents of the heart.”— Hebrews 4:12",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(220,53,69,0.4) 100%)"
+        }
+    ]
+}

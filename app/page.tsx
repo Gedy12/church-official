@@ -6,6 +6,7 @@ import Services from './components/Services';
 import MissionVision from './components/MissionVision';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Donate from './components/Donate';
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
       <Experience />
       <Services />
       <MissionVision />
-     <AnimatedAbout />
+      <AnimatedAbout />
+      <Donate />
       <Contact />
       <Footer />
     </main>

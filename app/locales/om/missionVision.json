@@ -1,0 +1,36 @@
+{
+    "title": "Ergamaa fi Mul'ata",
+    "subtitle": "Ibsa Mul'ataa fi Ergama Waldaa Keenyaa",
+    "vision": {
+        "title": "Mul'ata Keenya",
+        "description": "Waggoota soddoma oliif, waldaan kun Itiyoophiyaa keessatti ifa dhugaa fi haaromsa hafuuraa taatee turte. Tajaajilli ishee jireenya jijjiirame, gaggeessitoota leenjifamanii fi dameewwan amantii fi gara-laafinaan tajaajilan horateera.",
+        "quote": "\"Waldaan kun Hafuuraan dhalatte, Sagalichaan ijaaramte, fi humna Waaqayyoon jiraatti. Nuti kan jiraannu Yesuus Kiristoosiin qofaulfiisuufi.\" Luba Feqaaduu A. Shoonee \"Hafuura kootiin malee, humnaa fi jabinaan miti, jedha Waaqayyo Gooftaan maccaa.\" — Zakkaariyaas 4:6."
+    },
+    "mission": {
+        "title": "Ergama Keenya",
+        "description": "Waldaan 'Warra wangeelaa sagalee jiraataa etiyoophiyaa' tajaajila Phenxeqoste-Wangeelaa fi raajii yoo ta'u kan of kenne:",
+        "points": [
+            "Sagalee Waaqayyoo isa jiraataa akka dhugaa dhumaa fi aboo qabuutti labsu Fayyina, lammata dhalachuu, qulqullummaa fi cuuphaa Hafuura Qulqulluu barsiisuu Gaggeessitoota, lubootaa fi wangeelawitoota Sagalee fi Hafuuraan akka tajaajilaniif leenjisuu Tokkummaa hawaasa wangeelaa Itiyoophiyaa fi addunyaa gidduutti ijaaruu."
+        ],
+        "quote": "\"Saaqamuun dubbii keetii ifa in kenna, wallaalota iyyuu in hubachiisa.\" — Faarfannaa 119:130."
+    },
+    "impact": {
+        "title": "Bu'aa Hawaasa Keenyaa",
+        "church": {
+            "title": "Waldaa Keenya",
+            "desc": "Itiyoophiyaa guutuu keessatti dameewwan qabna"
+        },
+        "members": {
+            "title": "Miseensota Keenya",
+            "desc": "Hawaasa amantootaa cimaa"
+        },
+        "logo": {
+            "title": "Mallattoo Keenya",
+            "desc": "Mallattoo ELWECGP"
+        },
+        "language": {
+            "title": "Afaan",
+            "desc": "Afaan Oromoo, Amharic, English"
+        }
+    }
+}

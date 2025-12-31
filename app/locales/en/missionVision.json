@@ -1,0 +1,36 @@
+{
+    "title": "Our Mission & Vision",
+    "subtitle": "Our Church Vision and Mission Statements",
+    "vision": {
+        "title": "Our Vision",
+        "description": "For more than three decades, the church has stood as a beacon of truth and spiritual renewal in Ethiopia. Its ministry has produced transformed lives, trained leaders, and established branches serving in faith and compassion.",
+        "quote": "\"This church was born by the Spirit, built upon the Word, and sustained by the power of God. We exist to glorify Jesus Christ alone.\" Rev. Fekadu A. Shone \"Not by might, nor by power, but by My Spirit, says the Lord of hosts.\" — Zechariah 4:6."
+    },
+    "mission": {
+        "title": "Our Mission",
+        "description": "The Ethiopian Living Word Evangelical Church of God of Prophecy is a Pentecostal-Evangelical and prophetic ministry dedicated to:",
+        "points": [
+            "Proclaiming the Living Word of God as the final and authoritative truth Teaching salvation, regeneration, sanctification, and the baptism of the Holy Spirit Training leaders, pastors, and evangelists to minister in Word and Spirit Building unity within the evangelical community in Ethiopia and globally."
+        ],
+        "quote": "\"The entrance of Your Word gives light; it gives understanding to the simple.\" — Psalm 119:130."
+    },
+    "impact": {
+        "title": "Our Community's Impact",
+        "church": {
+            "title": "Our Church",
+            "desc": "We have branches across Ethiopia"
+        },
+        "members": {
+            "title": "Our Members",
+            "desc": "Strong community of believers"
+        },
+        "logo": {
+            "title": "Our Logo",
+            "desc": "ELWECGP Logo"
+        },
+        "language": {
+            "title": "Language",
+            "desc": "Afaan Oromoo, Amharic, English"
+        }
+    }
+}

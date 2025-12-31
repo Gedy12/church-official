@@ -1,0 +1,23 @@
+{
+    "sectionTitle": "Waldaa Keenya Waliin Wal-qunnamuuf",
+    "sectionSubtitle": "Isin tajaajiluuf as jirra. Kadhannaa, gorsa hafuuraa, yookiin waa'ee hawaasa keenyaa caalaatti baruuf nu qunnamaa.",
+    "form": {
+        "nameLabel": "Maqaa Keessan",
+        "namePlaceholder": "Maqaa keessan guutuu galchaa",
+        "emailLabel": "Teessoo Imeelii",
+        "emailPlaceholder": "Teessoo imeelii keessan galchaa",
+        "messageLabel": "Ergaa Keessan yookiin Gaaffii Kadhannaa",
+        "messagePlaceholder": "Gaaffii kadhannaa keessan, gaaffii waa'ee waldaa keenyaa, yookiin hafuuraan akkamitti akka isin deggarruu dandeenyu nuun hiraa...",
+        "submitButton": "Ergi",
+        "sendingButton": "Ergaan Keessan Ergammaa Jira...",
+        "successTitle": "Gaaffiin Kadhannaa Ergameera!",
+        "successMessage": "Nu qunnamuu keessaniif galatoomaa. Isiniif ni kadhanna, eebba Waaqayyootiin dafnee isinitti deebina."
+    },
+    "info": {
+        "title": "Odeeffannoo Quunnamtii Waldaa",
+        "subtitle": "Karaa teessoo kanaa kamiyyuu Waldaa 'Ethiopian Living Word Evangelical Church' qunnamaa",
+        "emailTitle": "Imeelii",
+        "phoneTitle": "Bilbila",
+        "locationTitle": "Bakka"
+    }
+}

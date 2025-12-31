@@ -1,8 +1,9 @@
 {
   "home": "Home",
   "foundation": "Foundation",
-  "ourLeaders": "Our Leader's",
+  "ourLeaders": "Leader",
   "journey": "Journey",
-  "missionVision": "Mission & Vision",
-  "contact": "Contact"
+  "missionVision": "Mission",
+  "contact": "Contact",
+  "donate": "Donate"
 }

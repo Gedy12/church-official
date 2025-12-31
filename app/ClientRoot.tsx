@@ -1,6 +1,7 @@
 'use client';
 
 import { ThemeProvider } from './context/ThemeContext';
+import { LanguageProvider } from './context/LanguageContext';
 
 export default function ClientRoot({
   children,
@@ -9,7 +10,9 @@ export default function ClientRoot({
 }) {
   return (
     <ThemeProvider>
-      {children}
+      <LanguageProvider>
+        {children}
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

@@ -1,0 +1,46 @@
+{
+    "brand": {
+        "title": "Marsariitii Ofiisii Waldaa",
+        "description": "Har'a, Waldaan 'Ethiopian Living Word Evangelical Church of God of Prophecy' ergama ishee Sagalee Jiraataa lallabuu, dhaloota itti aanu dhugaan guddisuu fi karaa sagantaalee hafuuraa fi hawaasummaa biyya tajaajiluu itti fuftee jirti."
+    },
+    "social": {
+        "title": "Nu Hordofaa"
+    },
+    "columns": {
+        "quickLinks": {
+            "title": "Ariifachiisaa",
+            "links": {
+                "home": "Man'ee",
+                "foundation": "Hundee",
+                "leader": "Gaggeessaa Keenya",
+                "journey": "Imala",
+                "mission": "Ergama fi Mul'ata",
+                "donate": "Gumaachuu",
+                "contact": "Quunnamtii"
+            }
+        },
+        "beliefs": {
+            "title": "Waan Nutti Amannu",
+            "items": [
+                "Sagalee Waaqayyo Jiraataa Lallabuu",
+                "Dhaloota itti aanu dhugaan guddisuu",
+                "Sagantaalee hafuuraa fi hawaasummaa",
+                "Sagalee Jiraataa, Jireenya Jijjiiru",
+                "Mootummaa Waaqayyoo Addunyaa irratti Ijaaruu",
+                "Dubbii Hin Jijjiiramne irratti ijaaramne"
+            ]
+        },
+        "contact": {
+            "title": "Nu Quunnamaa",
+            "location": "Itiyoophiyaa Finfinnee"
+        }
+    },
+    "bottom": {
+        "rights": "Mirgi Hundaa Seeraan Eegamaadha.",
+        "legal": {
+            "privacy": "Imaammata Dhuunfaa",
+            "terms": "Haalata Tajaajilaa",
+            "cookie": "Imaammata Kukiis"
+        }
+    }
+}

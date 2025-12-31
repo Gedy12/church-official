@@ -1,0 +1,25 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "backgroundImage": "/hero-bg1.jpg",
+            "quote": "BAGA NAGAAN DHUFTAN GARA WEBSITE WALDAA SAGALEE JIRAATAA ITOOPHIYAA",
+            "subheading": "Saaqamuun dubbii keetii ifa in kenna, wallaalota iyyuu in hubachiisa.— Far. 119:130",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,123,255,0.4) 100%)"
+        },
+        {
+            "id": 2,
+            "backgroundImage": "/hero-bg2.jpg",
+            "quote": "",
+            "subheading": "Yesus deebisee, Karichi, dhugaan, jireenyis, ana; anaan yoo ta'e malee, eenyu iyyuu gara abbaa hin dhufu.— Yoh. 14:6",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(40,167,69,0.4) 100%)"
+        },
+        {
+            "id": 3,
+            "backgroundImage": "/hero-bg3.jpg",
+            "quote": "",
+            "subheading": "Dubbiin Waaqayyoo jiraataa dha, humna hojjetus of keessaa qaba, billaa gar lamaan qarame caalaa qara qaba; inni lubbuu fi hafuura, buusaa fi dhuka gargar in baasa, yaadaa fi akeeka garaa namaas qoree faraduudhaaf in danda'a. - Ibr. 4:12",
+            "gradient": "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(220,53,69,0.4) 100%)"
+        }
+    ]
+}

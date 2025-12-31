@@ -1,0 +1,22 @@
+{
+    "sectionTitle": "ለግሱ",
+    "content": "የወንጌልን ሥራ በንብረቶቻችን እንሥራ፡- ችግረኛ ልጆችን መርዳት እንፈልጋለን። የክርስቲያን ቤተክርስቲያናችንን ፓስተሮችንና አገልጋዮቻችንን መርዳት እንፈልጋለን፣ ለአገልጋዮች የቲዎሎጂ ትምህርት ቤት መክፈት እንፈልጋለን፣ በገጠር አካባቢዎች ሴቶችን መርዳት እንፈልጋለን።",
+    "bankSectionTitle": "የባንክ ሂሳብ ዝርዝሮች",
+    "accounts": [
+        {
+            "bankName": "የኢትዮጵያ ንግድ ባንክ",
+            "accountNumber": "100021389478",
+            "accountName": "Prophecy Church"
+        },
+        {
+            "bankName": "አዋሽ ባንክ",
+            "accountNumber": "01320847563200",
+            "accountName": "Prophecy Church"
+        },
+        {
+            "bankName": "ህብረት ባንክ",
+            "accountNumber": "1890234567123",
+            "accountName": "Prophecy Church"
+        }
+    ]
+}

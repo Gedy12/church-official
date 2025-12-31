@@ -1,0 +1,46 @@
+{
+    "brand": {
+        "title": "ELWECGP Official Website.",
+        "description": "Today, the Ethiopian Living Word Evangelical Church of God of Prophecy continues its mission to preach the Living Word, raise the next generation in truth, and serve the nation through spiritual and social programs."
+    },
+    "social": {
+        "title": "Follow Us"
+    },
+    "columns": {
+        "quickLinks": {
+            "title": "Quick Links",
+            "links": {
+                "home": "Home",
+                "foundation": "Foundation",
+                "leader": "Our Leader's",
+                "journey": "Journey",
+                "mission": "Mission & Vision",
+                "donate": "Donate",
+                "contact": "Contact"
+            }
+        },
+        "beliefs": {
+            "title": "What We Believe",
+            "items": [
+                "Preaching the Living Word of God",
+                "Raising the next generation in truth",
+                "Spiritual and social programs",
+                "Living Word, Changing Lives",
+                "Building God's Kingdom in World",
+                "Built on the Unchanging Word"
+            ]
+        },
+        "contact": {
+            "title": "Get In Touch",
+            "location": "Ethiopia Addis Ababa"
+        }
+    },
+    "bottom": {
+        "rights": "All rights reserved.",
+        "legal": {
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "cookie": "Cookie Policy"
+        }
+    }
+}

@@ -3,10 +3,12 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import styles from '../styles/Experience.module.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const Experience = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const { translations } = useLanguage();
 
   // Animation variants
   const fadeInUp = {
@@ -24,40 +26,9 @@ const Experience = () => {
     visible: { opacity: 1, x: 0 }
   };
 
-  const experiences = [
-    {
-      year: "October 19, 1975 — 5:00 PM",
-      title: "The Vision",
-      company: "",
-      description: "The origin of the Ethiopian Living Word Evangelical Church of God of Prophecy began with a divine encounter experienced by Rev. Fekadu A. Shone on October 19, 1976, at 5:00 PM.During a time of prayer, the Lord opened to him a heavenly vision revealing a ministry that would proclaim the Living Word throughout Ethiopia and beyond. In that hour, the Spirit of God spoke to me saying, ‘Feed My people with My Word. The Living Word shall be your message, and My Spirit shall confirm it with power. Rev. Fekadu A. Shone Write the vision, and make it plain upon tables, that he may run that readeth it.”  Habakkuk 2:2",
-      icon: "☀",
-      type: "work"
-    },
-    {
-      year: "October 4, 1991 — 5:00 AM",
-      title: "The Reminder of the Vision",
-      company: "",
-      description: "After sixteen years of waiting, on October 4, 1991, at 5:00 AM, the same vision returned.The Holy Spirit reminded Rev. Fekadu of the calling first given in 1976, confirming that the time for fulfillment had come. “After sixteen years, the voice of the Lord came again to me and said, ‘Now is the appointed time; rise and build My church.’” From that moment, he began preparing to establish the work God had spoken about many years before.“For the vision is yet for an appointed time… though it tarries, wait for it; because it will surely come.” — Habakkuk 2:3",
-      icon: "🛎 ",
-      type: "work"
-    },
-    {
-      year: "September 18, 1992 — Friday",
-      title: " The Founding of the Church ",
-      company: "",
-      description: "The Founding of the Church (September 18, 1992 — Friday) In obedience to the heavenly vision, Rev. Fekadu A. Shone formally organized the Living Word Evangelical Church on September 18, 1992, a Friday. The ministry began humbly—with prayer, fasting, and total dependence on God—but with a clear mission: to preach the Living Word of God, demonstrate the power of the Holy Spirit, and raise disciples rooted in truth and holiness. “The grass withers, the flower fades, but the Word of our God stands forever.” — Isaiah 40:8.",
-      icon: "🏥",
-      type: "education"
-    },
-    {
-      year: "1992",
-      title: "Legal Registration and Recognition ",
-      company: "",
-      description: "That same year, 1992, the church was officially registered with the Ethiopian government as a religious organization.This recognition provided legal standing to operate freely in evangelism, worship, and community service under Ethiopian law. Soon after registration, the church also became a member of the Ethiopian Evangelical Churches Fellowship and later joined the Evangelical Church Councils of Ethiopia, uniting with other Gospel-preaching bodies for the advancement of the Kingdom of God. “Unity in the body of Christ is the power of the Gospel in action.” — Rev. Fekadu A. Shone “Endeavoring to keep the unity of the Spirit in the bond of peace.” — Ephesians 4:3.",
-      icon: "🌏",
-      type: "work"
-    }
-  ];
+  // Default to empty array if not loaded yet
+  const experiences = translations.experience?.experiences || [];
+  const sectionTitle = translations.experience?.sectionTitle || "Foundation of the Church";
 
   return (
     <section id="experience" className={styles.experienceSection} ref={ref}>
@@ -69,7 +40,7 @@ const Experience = () => {
           variants={fadeInUp}
           className="text-center mb-5"
         >
-          <h2 className={styles.sectionTitle}>Foundation of the Church</h2>
+          <h2 className={styles.sectionTitle}>{sectionTitle}</h2>
           <div className={styles.titleUnderline}></div>
         </motion.div>
 
@@ -77,15 +48,14 @@ const Experience = () => {
         <div className={styles.timelineContainer}>
           {/* Timeline Line */}
           <div className={styles.timelineLine}></div>
-          
+
           {/* Experience Items */}
           <div className={styles.timelineItems}>
-            {experiences.map((experience, index) => (
+            {experiences.map((experience: any, index: number) => (
               <motion.div
                 key={index}
-                className={`${styles.timelineItem} ${
-                  index % 2 === 0 ? styles.left : styles.right
-                }`}
+                className={`${styles.timelineItem} ${index % 2 === 0 ? styles.left : styles.right
+                  }`}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 variants={index % 2 === 0 ? slideInLeft : slideInRight}
@@ -93,13 +63,25 @@ const Experience = () => {
               >
                 {/* Timeline Dot */}
                 <div className={styles.timelineDot}>
-                  <div className={styles.dotIcon}>{experience.icon}</div>
+                  {/* Reuse icons if they are static or add to json if needed. 
+                      For now I'll hardcode based on index or add icon to json. 
+                      The json has them removed in my update? 
+                      Wait, the original file had icons in the object. 
+                      My previous write_to_file removed them! 
+                      I should add them back or handle them here.
+                      Let's handle them by index or title mapping for now to keep JSON clean 
+                      OR re-add them to JSON in next step if critical.
+                      Let's use a helper to get icon.
+                  */}
+                  <div className={styles.dotIcon}>
+                    {index === 0 ? "☀" : index === 1 ? "🛎" : index === 2 ? "🏥" : "🌏"}
+                  </div>
                 </div>
 
                 {/* Experience Card */}
-                <motion.div 
+                <motion.div
                   className={styles.experienceCard}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.02,
                     y: -5,
                     transition: { duration: 0.3 }
@@ -115,7 +97,7 @@ const Experience = () => {
                     <h3 className={styles.experienceTitle}>{experience.title}</h3>
                     <p className={styles.experienceCompany}>{experience.company}</p>
                     <p className={styles.experienceDescription}>{experience.description}</p>
-                    
+
                   </div>
                 </motion.div>
               </motion.div>

@@ -1,0 +1,23 @@
+{
+    "sectionTitle": "Connect With Our Church",
+    "sectionSubtitle": "We're here to serve you. Reach out for prayer, spiritual guidance, or to learn more about our community.",
+    "form": {
+        "nameLabel": "Your Name",
+        "namePlaceholder": "Enter your full name",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "Enter your email address",
+        "messageLabel": "Your Message or Prayer Request",
+        "messagePlaceholder": "Share your prayer requests, questions about our church, or how we can support you spiritually...",
+        "submitButton": "Send",
+        "sendingButton": "Your Message Is Sending ...",
+        "successTitle": "Prayer Request Sent!",
+        "successMessage": "Thank you for reaching out. We'll pray for you and get back to you soon with God's blessings."
+    },
+    "info": {
+        "title": "Church Contact Information",
+        "subtitle": "Reach out to Ethiopian Living Word Evangelical Church through any of these contacts",
+        "emailTitle": "Email",
+        "phoneTitle": "Phone",
+        "locationTitle": "Location"
+    }
+}
