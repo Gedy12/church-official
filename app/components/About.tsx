@@ -128,6 +128,10 @@ const AnimatedAbout = () => {
                   {t.biography.p2}
                 </p>
 
+                <p>
+                  {t.biography.p3}
+                </p>
+
               </motion.div>
             </div>
           </motion.div>

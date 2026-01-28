@@ -2,17 +2,27 @@
 
 import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+
 import styles from '../styles/Contact.module.css';
 import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
   const { translations } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+
+  const sectionRef = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const isInView = useInView(sectionRef, {
+    once: true,
+    margin: '-10%',
+  });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Animation variants
+  /* ================= Animations ================= */
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -20,9 +30,9 @@ const Contact = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0, 0, 0.58, 1] as any
-      }
-    }
+        ease: [0, 0, 0.58, 1] as any,
+      },
+    },
   };
 
   const slideInLeft = {
@@ -32,9 +42,9 @@ const Contact = () => {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: [0, 0, 0.58, 1] as any
-      }
-    }
+        ease: [0, 0, 0.58, 1] as any,
+      },
+    },
   };
 
   const slideInRight = {
@@ -44,100 +54,145 @@ const Contact = () => {
       x: 0,
       transition: {
         duration: 0.8,
-        ease: [0, 0, 0.58, 1] as any
-      }
-    }
+        ease: [0, 0, 0.58, 1] as any,
+      },
+    },
   };
 
   const t = translations.contact;
 
   if (!t) return null;
 
+  /* ================= Contact Info ================= */
+
   const contactInfo = [
     {
       icon: '📧',
       title: t.info.emailTitle,
       value: 'hiyawqal@gmail.com',
-      link: 'mailto:hiyawqal@gmail.com'
+      link: 'mailto:hiyawqal@gmail.com',
     },
     {
       icon: '📱',
       title: t.info.phoneTitle,
       value: '+1(206) 609 6878',
-      link: 'tel:+12066096878'
+      link: 'tel:+12066096878',
     },
     {
       icon: '📍',
       title: t.info.locationTitle,
       value: 'America Seattle, WA',
-      link: 'https://maps.google.com'
-    }
+      link: 'https://maps.google.com',
+    },
   ];
+
+  /* ================= Submit Handler ================= */
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!formRef.current) return;
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      setIsSubmitted(true);
+      formRef.current.reset();
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
+  /* ================= UI ================= */
+
   return (
-    <section id="contact" className={styles.contactSection} ref={ref}>
+    <section
+      id="contact"
+      className={styles.contactSection}
+      ref={sectionRef}
+    >
       <div className="container">
-        {/* Section Header */}
+
+        {/* Header */}
         <motion.div
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isInView ? 'visible' : 'hidden'}
           variants={fadeInUp}
           className="text-center mb-4"
         >
           <h2 className={styles.sectionTitle}>{t.sectionTitle}</h2>
           <div className={styles.titleUnderline}></div>
+
           <p className={styles.sectionSubtitle}>
             {t.sectionSubtitle}
           </p>
         </motion.div>
 
         <div className="row align-items-stretch">
-          {/* Contact Form - Left Side */}
+
+          {/* ================= FORM ================= */}
           <motion.div
             className="col-lg-7 col-md-6 mb-4 mb-md-0"
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={isInView ? 'visible' : 'hidden'}
             variants={slideInLeft}
           >
             <div className={styles.formContainer}>
+
               {isSubmitted ? (
+
+                /* Success Message */
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className={styles.successMessage}
                 >
                   <div className={styles.successIcon}>🙏</div>
+
                   <h3>{t.form.successTitle}</h3>
                   <p>{t.form.successMessage}</p>
                 </motion.div>
+
               ) : (
-                <form onSubmit={handleSubmit} className={styles.contactForm}>
+
+                /* Form */
+                <form
+                  ref={formRef}
+                  onSubmit={handleSubmit}
+                  className={styles.contactForm}
+                >
                   <div className="row g-3">
+
+                    {/* Name */}
                     <div className="col-md-6">
                       <motion.div
-                        initial="hidden"
-                        animate={isInView ? "visible" : "hidden"}
                         variants={fadeInUp}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
                         transition={{ delay: 0.1 }}
                         className={styles.formGroup}
                       >
-                        <label htmlFor="name" className={styles.formLabel}>{t.form.nameLabel}</label>
+                        <label
+                          htmlFor="name"
+                          className={styles.formLabel}
+                        >
+                          {t.form.nameLabel}
+                        </label>
+
                         <input
                           type="text"
                           id="name"
@@ -148,15 +203,23 @@ const Contact = () => {
                         />
                       </motion.div>
                     </div>
+
+                    {/* Email */}
                     <div className="col-md-6">
                       <motion.div
-                        initial="hidden"
-                        animate={isInView ? "visible" : "hidden"}
                         variants={fadeInUp}
+                        initial="hidden"
+                        animate={isInView ? 'visible' : 'hidden'}
                         transition={{ delay: 0.2 }}
                         className={styles.formGroup}
                       >
-                        <label htmlFor="email" className={styles.formLabel}>{t.form.emailLabel}</label>
+                        <label
+                          htmlFor="email"
+                          className={styles.formLabel}
+                        >
+                          {t.form.emailLabel}
+                        </label>
+
                         <input
                           type="email"
                           id="email"
@@ -169,127 +232,133 @@ const Contact = () => {
                     </div>
                   </div>
 
+                  {/* Message */}
                   <motion.div
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
                     variants={fadeInUp}
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
                     transition={{ delay: 0.3 }}
                     className={styles.formGroup}
                   >
-                    <label htmlFor="message" className={styles.formLabel}>{t.form.messageLabel}</label>
+                    <label
+                      htmlFor="message"
+                      className={styles.formLabel}
+                    >
+                      {t.form.messageLabel}
+                    </label>
+
                     <textarea
                       id="message"
                       name="message"
-                      required
                       rows={4}
+                      required
                       className={styles.formTextarea}
                       placeholder={t.form.messagePlaceholder}
                     />
                   </motion.div>
 
+                  {/* Submit Button */}
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
                     className={styles.submitButton}
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
                     variants={fadeInUp}
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
                     transition={{ delay: 0.4 }}
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 8px 25px rgba(0, 123, 255, 0.4)"
-                    }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {isSubmitting ? (
                       <>
-                        <motion.span
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          className={styles.loadingSpinner}
-                        >
-                          ⏳
-                        </motion.span>
-                        {t.form.sendingButton}
+                        ⏳ {t.form.sendingButton}
                       </>
                     ) : (
                       <>
                         {t.form.submitButton}
-                        <motion.span
-                          className={styles.sendIcon}
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          ✝️
-                        </motion.span>
+                        <span className={styles.sendIcon}> ✝️</span>
                       </>
                     )}
                   </motion.button>
+
                 </form>
               )}
+
             </div>
           </motion.div>
 
-          {/* Contact Info - Right Side */}
+          {/* ================= INFO ================= */}
           <motion.div
             className="col-lg-5 col-md-6"
             initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
+            animate={isInView ? 'visible' : 'hidden'}
             variants={slideInRight}
           >
             <div className={styles.infoContainer}>
+
               <motion.div
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
                 variants={fadeInUp}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
                 transition={{ delay: 0.2 }}
                 className={styles.contactInfo}
               >
-                <h3 className={styles.infoTitle}>{t.info.title}</h3>
+                <h3 className={styles.infoTitle}>
+                  {t.info.title}
+                </h3>
+
                 <p className={styles.infoSubtitle}>
                   {t.info.subtitle}
                 </p>
 
                 <div className={styles.contactList}>
+
                   {contactInfo.map((item, index) => (
+
                     <motion.div
                       key={item.title}
-                      initial="hidden"
-                      animate={isInView ? "visible" : "hidden"}
                       variants={fadeInUp}
-                      transition={{ delay: 0.3 + index * 0.1 }}
+                      initial="hidden"
+                      animate={isInView ? 'visible' : 'hidden'}
+                      transition={{
+                        delay: 0.3 + index * 0.1,
+                      }}
                       className={styles.contactItem}
                     >
-                      <motion.div
-                        className={styles.contactIcon}
-                        whileHover={{
-                          scale: 1.1,
-                          transition: { duration: 0.2 }
-                        }}
-                      >
+                      <div className={styles.contactIcon}>
                         {item.icon}
-                      </motion.div>
+                      </div>
+
                       <div className={styles.contactDetails}>
-                        <h4 className={styles.contactTitle}>{item.title}</h4>
-                        {item.link ? (
-                          <a
-                            href={item.link}
-                            className={styles.contactValue}
-                            target={item.link.startsWith('http') ? '_blank' : '_self'}
-                            rel={item.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                          >
-                            {item.value}
-                          </a>
-                        ) : (
-                          <span className={styles.contactValue}>{item.value}</span>
-                        )}
+                        <h4 className={styles.contactTitle}>
+                          {item.title}
+                        </h4>
+
+                        <a
+                          href={item.link}
+                          className={styles.contactValue}
+                          target={
+                            item.link.startsWith('http')
+                              ? '_blank'
+                              : '_self'
+                          }
+                          rel="noopener noreferrer"
+                        >
+                          {item.value}
+                        </a>
+
                       </div>
                     </motion.div>
+
                   ))}
+
                 </div>
+
               </motion.div>
+
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
