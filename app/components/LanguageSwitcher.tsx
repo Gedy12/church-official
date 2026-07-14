@@ -25,15 +25,15 @@ const LanguageSwitcher = () => {
     return (
         <div className="dropdown">
             <button
-                className="btn btn-link text-decoration-none dropdown-toggle d-flex align-items-center"
+                className="nav-link nav-link-custom dropdown-toggle d-flex align-items-center border-0 bg-transparent"
                 type="button"
                 id="languageDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                style={{ color: 'inherit' }}
+                style={{ color: 'inherit', outline: 'none', boxShadow: 'none' }}
             >
                 <span className="me-1">{languages.find(l => l.code === language)?.flag}</span>
-                <span className="d-none d-md-inline">{languages.find(l => l.code === language)?.label}</span>
+                <span>{languages.find(l => l.code === language)?.label}</span>
             </button>
             <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                 {languages.map((lang) => (

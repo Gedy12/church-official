@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <header className="header-shadow fixed-top">
-      <nav className="navbar navbar-expand-lg py-3">
+      <nav className="navbar navbar-expand-xl py-3">
         <div className="container">
           {/* Logo/Brand */}
           <button

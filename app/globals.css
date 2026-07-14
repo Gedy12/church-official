@@ -117,6 +117,13 @@ body {
   color: var(--text-color) !important;
 }
 
+@media (max-width: 1399.98px) {
+  .nav-link-custom {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 1rem;
+  }
+}
+
 /* Active nav link state */
 .nav-link-custom:active,
 .nav-link-custom:focus {
@@ -185,7 +192,7 @@ main {
 }
 
 /* Mobile responsive styles */
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   .navbar-collapse {
     background-color: var(--nav-bg);
     backdrop-filter: blur(10px);
@@ -212,6 +219,15 @@ main {
     margin: 0.5rem auto;
     display: flex;
   }
+}
+
+/* Word wrap / translation helper classes */
+.text-balance {
+  text-wrap: balance;
+}
+.word-break-word {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Smooth scrolling */

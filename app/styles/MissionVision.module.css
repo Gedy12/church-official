@@ -294,23 +294,23 @@
 }
 
 /* Theme-specific styles */
-:global(.light) .valueItem {
+.valueItem {
   --card-bg: #ffffff;
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
 }
 
-:global(.light) .logoImage {
+.logoImage {
   filter: brightness(0) invert(0);
 }
 
-:global(.dark) .valueItem {
+:global(.dark-mode) .valueItem {
   --card-bg: rgba(255, 255, 255, 0.05);
   --text-primary: #f9fafb;
   --text-secondary: #d1d5db;
 }
 
-:global(.dark) .logoImage {
+:global(.dark-mode) .logoImage {
   filter: brightness(0) invert(1);
 }
 
